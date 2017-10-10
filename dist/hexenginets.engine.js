@@ -13,13 +13,19 @@ var Engine = (function () {
             this.canvas = document.createElement('canvas');
         }
         this.ctx = this.canvas.getContext('2d');
-        if (!this.canvasElementId) {
-            document.body.appendChild(this.canvas);
+        if (config.containerId) {
+            if (!this.canvasElementId) {
+                document.getElementById(config.containerId).appendChild(this.canvas);
+            }
+        }
+        else {
+            if (!this.canvasElementId) {
+                document.body.appendChild(this.canvas);
+            }
         }
     };
     Engine.prototype.addScene = function (key, _scene) {
         this.scenes[key] = _scene;
-        console.log(this.scenes.length);
     };
     Engine.prototype.countScenes = function () {
         return Object.keys(this.scenes).length;
