@@ -44,7 +44,7 @@ export class Engine {
 
     addScene(key: string, _scene: Scene) {
         if (this.currentScene == undefined)
-            this.currentScene == key;
+            this.currentScene = key;
 
         this.scenes[key] = _scene;
     }
