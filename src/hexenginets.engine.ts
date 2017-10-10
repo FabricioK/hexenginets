@@ -12,6 +12,8 @@ export class Engine {
 
     public canvasHeight: number;
 
+    public currentScene: string;
+
     scenes: { [key: string]: Scene; } = {};
     constructor() {
     }
@@ -36,11 +38,22 @@ export class Engine {
         }
     }
 
+    setCurrentScene(key: string) {
+        this.currentScene == key;
+    }
+
     addScene(key: string, _scene: Scene) {
+        if (this.currentScene == null)
+            this.currentScene == key;
+
         this.scenes[key] = _scene;
     }
 
     countScenes(): number {
         return Object.keys(this.scenes).length
+    }
+
+    resumeScene() {
+        this.scenes[this.currentScene].animate();
     }
 }
