@@ -24,11 +24,19 @@ var Engine = (function () {
             }
         }
     };
+    Engine.prototype.setCurrentScene = function (key) {
+        this.currentScene == key;
+    };
     Engine.prototype.addScene = function (key, _scene) {
+        if (this.currentScene == null)
+            this.currentScene == key;
         this.scenes[key] = _scene;
     };
     Engine.prototype.countScenes = function () {
         return Object.keys(this.scenes).length;
+    };
+    Engine.prototype.resumeScene = function () {
+        this.scenes[this.currentScene].animate();
     };
     return Engine;
 }());
