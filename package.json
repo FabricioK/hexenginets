@@ -1,7 +1,7 @@
 {
   "name": "hexenginets",
   "version": "2.0.0",
-  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "description": " A game engine about hexagons",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
