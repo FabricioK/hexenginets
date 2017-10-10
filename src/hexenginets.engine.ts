@@ -8,6 +8,9 @@ export class Engine {
 
     public canvasElementId: string;
 
+    public container: HTMLElement;
+    public containerId: string;
+
     public canvasWidth: number;
 
     public canvasHeight: number;
@@ -20,6 +23,7 @@ export class Engine {
 
     init(config: any) {
         this.canvasElementId = config.canvasElementId;
+        this.containerId = config.containerId;
         if (this.canvasElementId) {
             this.canvas = <HTMLCanvasElement>document.getElementById(config.canvasElementId);
         } else {
@@ -32,9 +36,10 @@ export class Engine {
         this.canvas.height = config.height;
 
         this.ctx = <CanvasRenderingContext2D>this.canvas.getContext('2d');
-        if (config.containerId) {
+        if (this.containerId) {
+            this.container = document.getElementById(config.containerId);
             if (!this.canvasElementId) {
-                document.getElementById(config.containerId).appendChild(this.canvas);
+                this.container.appendChild(this.canvas);
             }
         } else {
             if (!this.canvasElementId) {
@@ -60,7 +65,7 @@ export class Engine {
 
     resumeScene() {
         if (this.scenes[this.currentScene].renderer == undefined)
-            this.scenes[this.currentScene].setRender(this.canvas,this.ctx);
+            this.scenes[this.currentScene].setRender(this.container);
 
         this.scenes[this.currentScene].animate();
     }

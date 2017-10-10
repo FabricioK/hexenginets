@@ -4,8 +4,10 @@ export declare class Scene {
     scene: THREE.Scene;
     camera: THREE.PerspectiveCamera;
     renderer: THREE.WebGLRenderer;
+    innerWidth: number;
+    innerHeight: number;
     constructor(config: any);
-    setRender(container: any, ctx: any): void;
+    setRender(container: HTMLElement): void;
     animate: () => void;
     render(): void;
 }

@@ -5,26 +5,24 @@ import * as THREE from 'three'
 export class Scene {
     public title: string;
     public scene: THREE.Scene;
-    // create the camera
     public camera: THREE.PerspectiveCamera;
-
     public renderer: THREE.WebGLRenderer;
-
+    public innerWidth: number;
+    public innerHeight: number;
 
     constructor(config: any) {
         this.title = config.title;
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        this.innerHeight = config.innerHeight | 500;
+        this.innerWidth = config.innerWidth | 500;
+        this.camera = new THREE.PerspectiveCamera(75, this.innerWidth / this.innerHeight, 0.1, 1000);
         this.camera.position.z = 5;
         this.scene = new THREE.Scene();
     }
 
-    public setRender(container: any, ctx: any) {
-        this.renderer = new THREE.WebGLRenderer({
-            canvas: container
-            , antialias: false
-        });
-        this.renderer.context = ctx;
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+    public setRender(container: HTMLElement) {
+        this.renderer = new THREE.WebGLRenderer({ antialias: false });
+        this.renderer.setSize(this.innerWidth, this.innerHeight);
+        container.appendChild( this.renderer.domElement );
     }
     public animate = () => {
         requestAnimationFrame(this.animate);

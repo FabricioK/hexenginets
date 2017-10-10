@@ -6,6 +6,7 @@ var Engine = (function () {
     }
     Engine.prototype.init = function (config) {
         this.canvasElementId = config.canvasElementId;
+        this.containerId = config.containerId;
         if (this.canvasElementId) {
             this.canvas = document.getElementById(config.canvasElementId);
         }
@@ -17,9 +18,10 @@ var Engine = (function () {
         this.canvasHeight = config.height;
         this.canvas.height = config.height;
         this.ctx = this.canvas.getContext('2d');
-        if (config.containerId) {
+        if (this.containerId) {
+            this.container = document.getElementById(config.containerId);
             if (!this.canvasElementId) {
-                document.getElementById(config.containerId).appendChild(this.canvas);
+                this.container.appendChild(this.canvas);
             }
         }
         else {
@@ -41,7 +43,7 @@ var Engine = (function () {
     };
     Engine.prototype.resumeScene = function () {
         if (this.scenes[this.currentScene].renderer == undefined)
-            this.scenes[this.currentScene].setRender(this.canvas, this.ctx);
+            this.scenes[this.currentScene].setRender(this.container);
         this.scenes[this.currentScene].animate();
     };
     return Engine;
