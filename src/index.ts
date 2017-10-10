@@ -1,1 +1,1 @@
-export { Hexenginets } from './hexengine-ts'
+export * from './components/components'

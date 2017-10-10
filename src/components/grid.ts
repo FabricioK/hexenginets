@@ -2,7 +2,7 @@
 import * as THREE from 'three'
 
 // create the scene
-export class Scene {
+export class Grid {
     public scene: THREE.Scene;
     // create the camera
     public camera: THREE.PerspectiveCamera;
