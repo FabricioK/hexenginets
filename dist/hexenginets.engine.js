@@ -29,7 +29,7 @@ var Engine = (function () {
     };
     Engine.prototype.addScene = function (key, _scene) {
         if (this.currentScene == undefined)
-            this.currentScene == key;
+            this.currentScene = key;
         this.scenes[key] = _scene;
     };
     Engine.prototype.countScenes = function () {
