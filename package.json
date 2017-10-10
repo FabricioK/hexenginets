@@ -4,11 +4,11 @@
   "description": " A game engine about hexagons",
   "engineStrict": true,
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "typings": "definitions/index",
   "typescript": {
     "definition": "definitions/index"
   },
-  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FabricioK/hexenginets.git"
@@ -20,7 +20,6 @@
   "devDependencies": {
     "@types/jasmine": "^2.6.0",
     "@types/node": "~6.0.46",
-    "@types/three": "^0.84.26",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-jasmine": "^2.4.2",
@@ -36,6 +35,7 @@
   },
   "dependencies": {
     "@types/es6-shim": "^0.31.35",
-    "three": "^0.87.1"
+    "three": "^0.87.1",
+    "@types/three": "^0.84.26"
   }
 }
