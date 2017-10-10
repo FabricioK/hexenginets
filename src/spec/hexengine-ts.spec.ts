@@ -10,7 +10,6 @@ describe('add', () => {
 
     scene.scene.add(cube);
 
-
     this.engine.init({
       containerId: 'container_id',
       width: 100,

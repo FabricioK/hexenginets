@@ -2,31 +2,20 @@ import { Scene } from './components/scene'
 
 export class Engine {
 
-    public canvas: HTMLCanvasElement;
-
-    public ctx: CanvasRenderingContext2D;
-
-    public canvasElementId: string;
-
     public container: HTMLElement;
     public containerId: string;
-
-    public canvasWidth: number;
-
-    public canvasHeight: number;
-
     public currentScene: string;
-
     scenes: { [key: string]: Scene; } = {};
+
     constructor() {
+
     }
 
     init(config: any) {
         this.containerId = config.containerId;
-         
+
         if (this.containerId) {
-            this.container = document.getElementById(config.containerId);
-          
+            this.container = document.getElementById(config.containerId);          
         } 
     }
 
