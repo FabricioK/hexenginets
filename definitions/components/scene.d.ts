@@ -5,6 +5,6 @@ export declare class Scene {
     camera: THREE.PerspectiveCamera;
     renderer: THREE.WebGLRenderer;
     constructor(config: any);
-    animate(): void;
+    animate: () => void;
     render(): void;
 }

@@ -21,7 +21,7 @@ export class Scene {
         this.scene = new THREE.Scene();
     }    
 
-    public animate() {
+    public animate =  () => {
         requestAnimationFrame(this.animate);
         this.render();
     }
