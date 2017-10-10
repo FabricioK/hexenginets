@@ -1,8 +1,6 @@
-export namespace Hexenginets {
-    export function sayHello() {
-      console.log('hi')
-    }
-    export function sayGoodbye() {
-      console.log('goodbye')
-    }
-  }
+// three.js
+import * as THREE from 'three'
+
+export default namespace Hexenginets {
+  
+}
