@@ -59,6 +59,9 @@ export class Engine {
     }
 
     resumeScene() {
+        if (this.scenes[this.currentScene].renderer == undefined)
+            this.scenes[this.currentScene].setRender(this.canvas);
+            
         this.scenes[this.currentScene].animate();
     }
 }

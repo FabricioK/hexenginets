@@ -40,6 +40,8 @@ var Engine = (function () {
         return Object.keys(this.scenes).length;
     };
     Engine.prototype.resumeScene = function () {
+        if (this.scenes[this.currentScene].renderer == undefined)
+            this.scenes[this.currentScene].setRender(this.canvas);
         this.scenes[this.currentScene].animate();
     };
     return Engine;
