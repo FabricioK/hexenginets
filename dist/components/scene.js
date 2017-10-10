@@ -13,8 +13,12 @@ var Scene = (function () {
         this.camera.position.z = 5;
         this.scene = new THREE.Scene();
     }
-    Scene.prototype.setRender = function (container) {
-        this.renderer = new THREE.WebGLRenderer({ canvas: container, antialias: true });
+    Scene.prototype.setRender = function (container, ctx) {
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: container,
+            antialias: false
+        });
+        this.renderer.context = ctx;
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     };
     Scene.prototype.render = function () {

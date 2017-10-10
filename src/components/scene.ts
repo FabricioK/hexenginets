@@ -18,8 +18,12 @@ export class Scene {
         this.scene = new THREE.Scene();
     }
 
-    public setRender(container: any) {
-        this.renderer = new THREE.WebGLRenderer({ canvas: container, antialias: true });
+    public setRender(container: any, ctx: any) {
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: container
+            , antialias: false
+        });
+        this.renderer.context = ctx;
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
     public animate = () => {
