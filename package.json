@@ -29,13 +29,13 @@
     "merge2": "^1.0.2",
     "rimraf": "~2.5.4",
     "run-sequence": "^1.2.2",
-    "standard-version": "^3.0.0",
-    "three": "^0.87.1",
+    "standard-version": "^3.0.0",    
     "tslint": "~3.15.1",
     "tslint-microsoft-contrib": "~2.0.13",
     "typescript": "^2.5.3"
   },
   "dependencies": {
-    "@types/es6-shim": "^0.31.35"
+    "@types/es6-shim": "^0.31.35",
+    "three": "^0.87.1"
   }
 }
