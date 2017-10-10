@@ -25,8 +25,14 @@ export class Engine {
         }
 
         this.ctx = <CanvasRenderingContext2D>this.canvas.getContext('2d');
-        if (!this.canvasElementId) {
-            document.body.appendChild(this.canvas);
+        if (config.containerId) {
+            if (!this.canvasElementId) {
+                document.getElementById(config.containerId).appendChild(this.canvas);
+            }
+        } else {
+            if (!this.canvasElementId) {
+                document.body.appendChild(this.canvas);
+            }
         }
     }
 
