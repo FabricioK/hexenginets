@@ -43,7 +43,7 @@ export class Engine {
     }
 
     addScene(key: string, _scene: Scene) {
-        if (this.currentScene == null)
+        if (this.currentScene == undefined)
             this.currentScene == key;
 
         this.scenes[key] = _scene;

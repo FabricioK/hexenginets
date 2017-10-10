@@ -28,7 +28,7 @@ var Engine = (function () {
         this.currentScene == key;
     };
     Engine.prototype.addScene = function (key, _scene) {
-        if (this.currentScene == null)
+        if (this.currentScene == undefined)
             this.currentScene == key;
         this.scenes[key] = _scene;
     };
