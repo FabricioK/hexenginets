@@ -1,6 +1,6 @@
 {
   "name": "hexenginets",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": " A game engine about hexagons",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
