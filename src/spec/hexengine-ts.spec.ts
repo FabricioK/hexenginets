@@ -1,10 +1,14 @@
-import {  Grid ,Scene } from '../index';
+import {  Grid ,Scene ,Engine } from '../index';
 
 describe('add', () => {
-    var cl = new  Scene();
-    var cl2 = new Grid();
+
+    var cl = new Scene({ title:'scene01'});
+    var hexengine = new Engine();
+    
+    hexengine.addScene(cl.title,cl);
+    
     it('should sum given numbers', () => {
-        expect(cl.camera).toBe(undefined);
+        expect(hexengine.countScenes()).toBe(1);
     });
 
 });

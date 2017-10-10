@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Scene = (function () {
-    function Scene() {
+    function Scene(config) {
+        this.title = config.title;
     }
     Scene.prototype.animate = function () {
         requestAnimationFrame(this.animate);
