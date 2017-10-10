@@ -26,6 +26,11 @@ export class Engine {
             this.canvas = <HTMLCanvasElement>document.createElement('canvas');
         }
 
+        this.canvasWidth = config.width;
+        this.canvas.width = config.width;
+        this.canvasHeight = config.height;
+        this.canvas.height = config.height;
+
         this.ctx = <CanvasRenderingContext2D>this.canvas.getContext('2d');
         if (config.containerId) {
             if (!this.canvasElementId) {

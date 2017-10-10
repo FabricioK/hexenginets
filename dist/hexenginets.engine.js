@@ -12,6 +12,10 @@ var Engine = (function () {
         else {
             this.canvas = document.createElement('canvas');
         }
+        this.canvasWidth = config.width;
+        this.canvas.width = config.width;
+        this.canvasHeight = config.height;
+        this.canvas.height = config.height;
         this.ctx = this.canvas.getContext('2d');
         if (config.containerId) {
             if (!this.canvasElementId) {
