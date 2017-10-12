@@ -25,6 +25,7 @@ export class Scene {
         this.board = new Board(grid);
 
         this.scene.add(this.board.group);
+        this.focusOn(this.board.group);
     }
     public focusOn(obj: THREE.Object3D) {
         this.camera.lookAt(obj.position);

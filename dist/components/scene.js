@@ -21,6 +21,7 @@ var Scene = (function () {
         });
         this.board = new components_1.Board(grid);
         this.scene.add(this.board.group);
+        this.focusOn(this.board.group);
     }
     Scene.prototype.focusOn = function (obj) {
         this.camera.lookAt(obj.position);
