@@ -14,7 +14,7 @@ export class Scene {
         this.title = config.title;
         this.innerHeight = config.innerHeight | 500;
         this.innerWidth = config.innerWidth | 500;
-        this.camera = new THREE.PerspectiveCamera(75, this.innerWidth / this.innerHeight, 0.1, 1000);
+        this.camera = new THREE.PerspectiveCamera(50, this.innerWidth / this.innerHeight, 1, 5000);
         this.camera.position.z = 5;
         this.scene = new THREE.Scene();
 
@@ -26,7 +26,9 @@ export class Scene {
 
         this.scene.add(this.board.group);
     }
-
+    public focusOn(obj: THREE.Object3D) {
+        this.camera.lookAt(obj.position);
+    }
     public setRender(container: HTMLElement) {
         this.renderer = new THREE.WebGLRenderer({ antialias: false });
         this.renderer.setSize(this.innerWidth, this.innerHeight);
