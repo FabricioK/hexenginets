@@ -5,3 +5,4 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./scene"));
 __export(require("./grid"));
+__export(require("./board"));

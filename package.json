@@ -35,7 +35,8 @@
   },
   "dependencies": {
     "@types/es6-shim": "^0.31.35",
+    "@types/three": "^0.84.26",
     "three": "^0.87.1",
-    "@types/three": "^0.84.26"
+    "typescript-collections": "^1.2.5"
   }
 }
