@@ -4,6 +4,9 @@ var util_1 = require("./util");
 var THREE = require("three");
 var Grid = (function () {
     function Grid(config) {
+        this.cellSize = 10;
+        this._cellWidth = this.cellSize * 2;
+        this._cellLength = (util_1.util.SQRT3 * 0.5) * this._cellWidth;
         var i, verts = [];
         for (i = 0; i < 6; i++) {
             verts.push(this._createVertex(i));
@@ -19,9 +22,6 @@ var Grid = (function () {
         this.cellGeo.vertices = verts;
         this.cellGeo.verticesNeedUpdate = true;
         this.cellShapeGeo = new THREE.ShapeGeometry(this.cellShape);
-        this.cellSize = 10;
-        this._cellWidth = this.cellSize * 2;
-        this._cellLength = (util_1.util.SQRT3 * 0.5) * this._cellWidth;
     }
     Grid.prototype._createVertex = function (i) {
         var angle = (util_1.util.TAU / 6) * i;
