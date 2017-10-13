@@ -5,12 +5,13 @@ var Board = (function () {
     function Board(grid) {
         this.group = new THREE.Object3D();
         var mat = new THREE.LineBasicMaterial({
-            color: 0x000000,
+            color: 0x00ff00,
             opacity: 0.3
         });
         this.overlay = new THREE.Object3D();
         this.group.add(this.overlay);
         this.setGrid(grid);
+        this.generateOverlay(10);
     }
     Board.prototype.setGrid = function (newGrid) {
         this.group.remove(this.tileGroup);

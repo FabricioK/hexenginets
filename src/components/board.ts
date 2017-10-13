@@ -9,7 +9,7 @@ export class Board {
     constructor(grid: Grid) {
         this.group = new THREE.Object3D();
         let mat = new THREE.LineBasicMaterial({
-            color: 0x000000,
+            color: 0x00ff00,
             opacity: 0.3
         });
         this.overlay = new THREE.Object3D();
@@ -17,6 +17,7 @@ export class Board {
         this.group.add(this.overlay);
         
         this.setGrid(grid);
+        this.generateOverlay(10);
     }
 
     setGrid(newGrid: Grid) {
