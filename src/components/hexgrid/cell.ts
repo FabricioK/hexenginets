@@ -1,10 +1,11 @@
-import { UtilGenerator } from './util'
+import { UtilGenerator } from '../util'
+import { Tile } from '../components'
 export class Cell {
     q: number; // x grid coordinate (using different letters so that it won't be confused with pixel/world coordinates)
     r: number; // y grid coordinate
     s: number; // z grid coordinate
     h: number; // 3D height of the cell, used by visual representation and pathfinder, cannot be less than 1
-    tile: string; // optional link to the visual representation's class instance
+    tile: Tile; // optional link to the visual representation's class instance
     userData: any; // populate with any extra data needed in your game
     walkable: boolean; // if true, pathfinder will use as a through node
     // rest of these are used by the pathfinder and overwritten at runtime, so don't touch

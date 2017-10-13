@@ -1,4 +1,4 @@
-import { Scene } from './components/scene'
+import { Scene } from './components/hexgrid/scene'
 
 export class Engine {
 

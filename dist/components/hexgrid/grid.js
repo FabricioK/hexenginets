@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = require("./util");
-var cell_1 = require("./cell");
+var util_1 = require("../util");
+var components_1 = require("../components");
 var THREE = require("three");
 var Grid = (function () {
     function Grid(config) {
-        this.cellSize = 10;
-        this._cel = new cell_1.Cell(undefined, undefined, undefined, undefined);
+        this.extrudeSettings = new components_1.ExtrudeSettings();
+        this.cellSize = config.cellSize || 5;
+        this._cel = new components_1.Cell(undefined, undefined, undefined, undefined);
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util_1.util.SQRT3 * 0.5) * this._cellWidth;
         var i, verts = [];
@@ -52,6 +53,47 @@ var Grid = (function () {
                 }
             }
         }
+    };
+    Grid.prototype.generateTile = function (cell, scale, material) {
+        var height = Math.abs(cell.h);
+        if (height < 1)
+            height = 1;
+        var geo = this._geoCache[height];
+        if (!geo) {
+            this.extrudeSettings.amount = height;
+            geo = new THREE.ExtrudeGeometry(this.cellShape, this.extrudeSettings);
+            this._geoCache[height] = geo;
+        }
+        var tile = new components_1.Tile({
+            size: this.cellSize,
+            scale: scale,
+            cell: cell,
+            geometry: geo,
+            material: material
+        });
+        cell.tile = tile;
+        return tile;
+    };
+    Grid.prototype.generateTiles = function () {
+        var tiles = [];
+        var settings = {
+            tileScale: 0.95,
+            cellSize: this.cellSize,
+            material: null,
+            extrudeSettings: new components_1.ExtrudeSettings()
+        };
+        this.cellSize = settings.cellSize;
+        this._cellWidth = this.cellSize * 2;
+        this._cellLength = (util_1.util.SQRT3 * 0.5) * this._cellWidth;
+        var i, t, c;
+        for (i in this.cells) {
+            c = this.cells[i];
+            t = this.generateTile(c, settings.tileScale, settings.material);
+            t.position.copy(this.cellToPixel(c));
+            t.position.y = 0;
+            tiles.push(t);
+        }
+        return tiles;
     };
     Grid.prototype.dispose = function () {
         this.cells = null;

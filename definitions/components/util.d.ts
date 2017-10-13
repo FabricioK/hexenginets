@@ -14,4 +14,6 @@ export declare var util: {
 };
 export declare class UtilGenerator {
     generateID(): string;
+    randomInt(min: any, max?: any): number;
+    randomizeRGB(base: any, range: any): string;
 }

@@ -1,6 +1,6 @@
 // three.js
 import * as THREE from 'three'
-import { Grid, Board } from './components'
+import { Grid, Board } from '../components'
 // create the scene
 export class Scene {
     public title: string;
@@ -18,10 +18,7 @@ export class Scene {
         this.camera.position.z = 5;
         this.container = new THREE.Scene();
 
-        var grid = new Grid({
-            rings: 5,
-            cellSize: 10
-        });
+        var grid = new Grid(config.gridConfig);
         this.board = new Board(grid);
 
         this.container.add(this.board.group);

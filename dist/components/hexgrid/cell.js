@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = require("./util");
+var util_1 = require("../util");
 var Cell = (function () {
     function Cell(q, r, s, h) {
         this.q = q || 0;

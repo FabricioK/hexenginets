@@ -1,5 +1,5 @@
-import { util } from './util'
-import { Cell } from './cell'
+import { util } from '../util'
+import { Cell, Tile, ExtrudeSettings } from '../components'
 // three.js
 import * as THREE from 'three'
 
@@ -24,9 +24,10 @@ export class Grid {
     _conversionVec: THREE.Vector3;
     _geoCache: Array<any>;
     _matCache: Array<any>;
-
+    extrudeSettings: ExtrudeSettings;
     constructor(config: any) {
-        this.cellSize = 10;
+        this.extrudeSettings = new ExtrudeSettings();
+        this.cellSize = config.cellSize || 5;
         this._cel = new Cell(undefined, undefined, undefined, undefined);
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util.SQRT3 * 0.5) * this._cellWidth;
@@ -80,6 +81,50 @@ export class Grid {
                 }
             }
         }
+    }
+    generateTile(cell, scale, material) {
+        var height = Math.abs(cell.h);
+        if (height < 1) height = 1;
+
+        var geo = this._geoCache[height];
+        if (!geo) {
+            this.extrudeSettings.amount = height;
+            geo = new THREE.ExtrudeGeometry(this.cellShape, this.extrudeSettings);
+            this._geoCache[height] = geo;
+        }
+        var tile = new Tile({
+            size: this.cellSize,
+            scale: scale,
+            cell: cell,
+            geometry: geo,
+            material: material
+        });
+
+        cell.tile = tile;
+
+        return tile;
+    }
+    public generateTiles() {
+        var tiles = [];
+        var settings = {
+            tileScale: 0.95,
+            cellSize: this.cellSize,
+            material: null,
+            extrudeSettings: new ExtrudeSettings()
+        }
+
+        this.cellSize = settings.cellSize;
+        this._cellWidth = this.cellSize * 2;
+        this._cellLength = (util.SQRT3 * 0.5) * this._cellWidth;
+        var i, t, c;
+        for (i in this.cells) {
+            c = this.cells[i];
+            t = this.generateTile(c, settings.tileScale, settings.material);
+            t.position.copy(this.cellToPixel(c));
+            t.position.y = 0;
+            tiles.push(t);
+        }
+        return tiles;
     }
 
     dispose() {
