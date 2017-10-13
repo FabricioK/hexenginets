@@ -1,10 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var util_1 = require("./util");
+var cell_1 = require("./cell");
 var THREE = require("three");
 var Grid = (function () {
     function Grid(config) {
         this.cellSize = 10;
+        this._cel = new cell_1.Cell(undefined, undefined, undefined, undefined);
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util_1.util.SQRT3 * 0.5) * this._cellWidth;
         var i, verts = [];

@@ -27,9 +27,10 @@ export class Grid {
 
     constructor(config: any) {
         this.cellSize = 10;
+        this._cel = new Cell(undefined, undefined, undefined, undefined);
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util.SQRT3 * 0.5) * this._cellWidth;
-        
+
         // create base shape used for building geometry
         var i, verts = [];
         // create the skeleton of the hex
@@ -49,7 +50,7 @@ export class Grid {
         this.cellGeo.vertices = verts;
         this.cellGeo.verticesNeedUpdate = true;
 
-        this.cellShapeGeo = new THREE.ShapeGeometry(this.cellShape);        
+        this.cellShapeGeo = new THREE.ShapeGeometry(this.cellShape);
     }
 
     _createVertex(i): THREE.Vector3 {
