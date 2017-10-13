@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { Board } from './components';
 export declare class Scene {
     title: string;
-    scene: THREE.Scene;
+    container: THREE.Scene;
     camera: THREE.PerspectiveCamera;
     renderer: THREE.WebGLRenderer;
     innerWidth: number;

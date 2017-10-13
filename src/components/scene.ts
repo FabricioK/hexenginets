@@ -9,7 +9,7 @@ export class Scene {
     public renderer: THREE.WebGLRenderer;
     public innerWidth: number;
     public innerHeight: number;
-    board: Board;
+    public board: Board;
     constructor(config: any) {
         this.title = config.title;
         this.innerHeight = config.innerHeight | 500;

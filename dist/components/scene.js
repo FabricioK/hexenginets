@@ -14,13 +14,13 @@ var Scene = (function () {
         this.innerWidth = config.innerWidth | 500;
         this.camera = new THREE.PerspectiveCamera(50, this.innerWidth / this.innerHeight, 1, 5000);
         this.camera.position.z = 5;
-        this.scene = new THREE.Scene();
+        this.container = new THREE.Scene();
         var grid = new components_1.Grid({
             rings: 5,
             cellSize: 10
         });
         this.board = new components_1.Board(grid);
-        this.scene.add(this.board.group);
+        this.container.add(this.board.group);
         this.focusOn(this.board.group);
     }
     Scene.prototype.focusOn = function (obj) {
@@ -32,7 +32,7 @@ var Scene = (function () {
         container.appendChild(this.renderer.domElement);
     };
     Scene.prototype.render = function () {
-        this.renderer.render(this.scene, this.camera);
+        this.renderer.render(this.container, this.camera);
     };
     return Scene;
 }());
