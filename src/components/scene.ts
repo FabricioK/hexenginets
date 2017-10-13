@@ -4,7 +4,7 @@ import { Grid, Board } from './components'
 // create the scene
 export class Scene {
     public title: string;
-    public scene: THREE.Scene;
+    public container: THREE.Scene;
     public camera: THREE.PerspectiveCamera;
     public renderer: THREE.WebGLRenderer;
     public innerWidth: number;
@@ -16,7 +16,7 @@ export class Scene {
         this.innerWidth = config.innerWidth | 500;
         this.camera = new THREE.PerspectiveCamera(50, this.innerWidth / this.innerHeight, 1, 5000);
         this.camera.position.z = 5;
-        this.scene = new THREE.Scene();
+        this.container = new THREE.Scene();
 
         var grid = new Grid({
             rings: 5,
@@ -24,7 +24,7 @@ export class Scene {
         });
         this.board = new Board(grid);
 
-        this.scene.add(this.board.group);
+        this.container.add(this.board.group);
         this.focusOn(this.board.group);
     }
     public focusOn(obj: THREE.Object3D) {
@@ -41,6 +41,6 @@ export class Scene {
     }
 
     public render() {
-        this.renderer.render(this.scene, this.camera)
+        this.renderer.render(this.container, this.camera)
     }
 }
