@@ -6,6 +6,7 @@ var Engine = (function () {
     }
     Engine.prototype.init = function (config) {
         this.containerId = config.containerId;
+        this.renderSettings = config.renderSettings;
         if (this.containerId) {
             this.container = document.getElementById(config.containerId);
         }
@@ -23,7 +24,7 @@ var Engine = (function () {
     };
     Engine.prototype.resumeScene = function () {
         if (this.scenes[this.currentScene].renderer == undefined)
-            this.scenes[this.currentScene].setRender(this.container);
+            this.scenes[this.currentScene].setRender(this.container, this.renderSettings);
         this.scenes[this.currentScene].animate();
     };
     return Engine;

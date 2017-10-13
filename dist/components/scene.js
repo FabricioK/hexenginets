@@ -26,8 +26,8 @@ var Scene = (function () {
     Scene.prototype.focusOn = function (obj) {
         this.camera.lookAt(obj.position);
     };
-    Scene.prototype.setRender = function (container) {
-        this.renderer = new THREE.WebGLRenderer({ antialias: false });
+    Scene.prototype.setRender = function (container, renderSettings) {
+        this.renderer = new THREE.WebGLRenderer(renderSettings);
         this.renderer.setSize(this.innerWidth, this.innerHeight);
         container.appendChild(this.renderer.domElement);
     };

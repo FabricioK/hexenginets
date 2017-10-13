@@ -1,11 +1,10 @@
 import { Scene } from './components/scene';
 export declare class Engine {
-    container: HTMLElement;
-    containerId: string;
-    currentScene: string;
-    scenes: {
-        [key: string]: Scene;
-    };
+    private container;
+    private containerId;
+    private currentScene;
+    private renderSettings;
+    private scenes;
     constructor();
     init(config: any): void;
     setCurrentScene(key: string): void;

@@ -30,8 +30,8 @@ export class Scene {
     public focusOn(obj: THREE.Object3D) {
         this.camera.lookAt(obj.position);
     }
-    public setRender(container: HTMLElement) {
-        this.renderer = new THREE.WebGLRenderer({ antialias: false });
+    public setRender(container: HTMLElement, renderSettings) {
+        this.renderer = new THREE.WebGLRenderer(renderSettings);
         this.renderer.setSize(this.innerWidth, this.innerHeight);
         container.appendChild(this.renderer.domElement);
     }

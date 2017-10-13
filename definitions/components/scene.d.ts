@@ -10,7 +10,7 @@ export declare class Scene {
     board: Board;
     constructor(config: any);
     focusOn(obj: THREE.Object3D): void;
-    setRender(container: HTMLElement): void;
+    setRender(container: HTMLElement, renderSettings: any): void;
     animate: () => void;
     render(): void;
 }

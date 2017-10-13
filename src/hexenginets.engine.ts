@@ -2,10 +2,11 @@ import { Scene } from './components/scene'
 
 export class Engine {
 
-    public container: HTMLElement;
-    public containerId: string;
-    public currentScene: string;
-    scenes: { [key: string]: Scene; } = {};
+    private container: HTMLElement;
+    private containerId: string;
+    private currentScene: string;
+    private renderSettings: any;
+    private scenes: { [key: string]: Scene; } = {};
 
     constructor() {
 
@@ -13,10 +14,10 @@ export class Engine {
 
     init(config: any) {
         this.containerId = config.containerId;
-
+        this.renderSettings = config.renderSettings;
         if (this.containerId) {
-            this.container = document.getElementById(config.containerId);          
-        } 
+            this.container = document.getElementById(config.containerId);
+        }
     }
 
     setCurrentScene(key: string) {
@@ -36,7 +37,7 @@ export class Engine {
 
     resumeScene() {
         if (this.scenes[this.currentScene].renderer == undefined)
-            this.scenes[this.currentScene].setRender(this.container);
+            this.scenes[this.currentScene].setRender(this.container, this.renderSettings);
 
         this.scenes[this.currentScene].animate();
     }
