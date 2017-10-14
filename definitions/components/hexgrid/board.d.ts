@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { Grid } from './grid';
+import { Grid } from '../components';
 export declare class Board {
     overlay: THREE.Object3D;
     group: THREE.Object3D;

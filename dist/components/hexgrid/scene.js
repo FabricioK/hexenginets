@@ -15,8 +15,9 @@ var Scene = (function () {
         this.camera = new THREE.PerspectiveCamera(50, this.innerWidth / this.innerHeight, 1, 5000);
         this.camera.position.z = 5;
         this.container = new THREE.Scene();
-        var grid = new components_1.Grid(config.gridConfig);
-        this.board = new components_1.Board(grid);
+        this.grid = new components_1.Grid(config.gridConfig);
+        this.grid.generate();
+        this.board = new components_1.Board(this.grid);
         this.container.add(this.board.group);
         this.focusOn(this.board.group);
     }

@@ -1,5 +1,5 @@
 import * as  THREE from 'three'
-import { Grid } from './grid'
+import { Grid, Cell } from '../components'
 export class Board {
     overlay: THREE.Object3D;
     group: THREE.Object3D;
@@ -44,7 +44,7 @@ export class Board {
         for (var i = 0; i < tiles.length; i++) {
             this.tileGroup.remove(tiles[i]);
         }
-    }
+    }    
     generateOverlay(size: number) {
         var mat = new THREE.LineBasicMaterial({
             color: 0x000000,

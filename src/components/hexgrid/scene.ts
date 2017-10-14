@@ -10,6 +10,7 @@ export class Scene {
     public innerWidth: number;
     public innerHeight: number;
     public board: Board;
+    public grid: Grid;
     constructor(config: any) {
         this.title = config.title;
         this.innerHeight = config.innerHeight | 500;
@@ -18,8 +19,9 @@ export class Scene {
         this.camera.position.z = 5;
         this.container = new THREE.Scene();
 
-        var grid = new Grid(config.gridConfig);
-        this.board = new Board(grid);
+        this.grid = new Grid(config.gridConfig);
+        this.grid.generate();
+        this.board = new Board(this.grid);
 
         this.container.add(this.board.group);
         this.focusOn(this.board.group);

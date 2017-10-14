@@ -31,7 +31,7 @@ export class Grid {
         this._cel = new Cell(undefined, undefined, undefined, undefined);
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util.SQRT3 * 0.5) * this._cellWidth;
-
+        this._hashDelimeter = '.';
         // create base shape used for building geometry
         var i, verts = [];
         // create the skeleton of the hex
@@ -66,6 +66,34 @@ export class Grid {
         this._vec3.z = -((cell.s - cell.r) * this._cellLength * 0.5);
         return this._vec3;
     }
+    cellToHash(cell: Cell) {
+        return cell.q + this._hashDelimeter + cell.r + this._hashDelimeter + cell.s;
+    }
+    add(cell: Cell) {
+        var h = this.cellToHash(cell);
+        if (this.cells[h]) {
+            // console.warn('A cell already exists there');
+            return;
+        }
+        this.cells[h] = cell;
+        this.numCells++;
+
+        return cell;
+    }
+
+    generate() {
+        var x, y, z, c;
+        for (x = -this.cellSize; x < this.cellSize + 1; x++) {
+            for (y = -this.cellSize; y < this.cellSize + 1; y++) {
+                z = -x - y;
+                if (Math.abs(x) <= this.cellSize && Math.abs(y) <= this.cellSize && Math.abs(z) <= this.cellSize) {
+                    c = new Cell(x, y, z, null);
+                    this.add(c);
+                }
+            }
+        }
+    }
+
     public generateOverlay(size, overlayObj, overlayMat) {
         var x, y, z;
         var geo = this.cellShape.createPointsGeometry(6);

@@ -22,6 +22,9 @@ export declare class Grid {
     constructor(config: any);
     _createVertex(i: any): THREE.Vector3;
     cellToPixel(cell: Cell): THREE.Vector3;
+    cellToHash(cell: Cell): string;
+    add(cell: Cell): Cell;
+    generate(): void;
     generateOverlay(size: any, overlayObj: any, overlayMat: any): void;
     generateTile(cell: any, scale: any, material: any): Tile;
     generateTiles(): any[];

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { Board } from '../components';
+import { Grid, Board } from '../components';
 export declare class Scene {
     title: string;
     container: THREE.Scene;
@@ -8,6 +8,7 @@ export declare class Scene {
     innerWidth: number;
     innerHeight: number;
     board: Board;
+    grid: Grid;
     constructor(config: any);
     focusOn(obj: THREE.Object3D): void;
     setRender(container: HTMLElement, renderSettings: any): void;
