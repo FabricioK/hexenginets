@@ -11,6 +11,8 @@ var Grid = (function () {
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util_1.util.SQRT3 * 0.5) * this._cellWidth;
         this._hashDelimeter = '.';
+        this._geoCache = new Array();
+        this.cells = new Array();
         var i, verts = [];
         for (i = 0; i < 6; i++) {
             verts.push(this._createVertex(i));

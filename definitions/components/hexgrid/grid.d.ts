@@ -5,7 +5,7 @@ export declare class Grid {
     cellGeo: THREE.Geometry;
     cellShapeGeo: THREE.ShapeGeometry;
     cellSize: number;
-    cells: any;
+    cells: Array<Cell>;
     numCells: number;
     _cellWidth: number;
     _cellLength: number;
@@ -16,7 +16,7 @@ export declare class Grid {
     _vec3: THREE.Vector3;
     _cel: Cell;
     _conversionVec: THREE.Vector3;
-    _geoCache: Array<any>;
+    _geoCache: Array<THREE.ExtrudeGeometry>;
     _matCache: Array<any>;
     extrudeSettings: ExtrudeSettings;
     constructor(config: any);

@@ -9,7 +9,7 @@ export class Grid {
     cellGeo: THREE.Geometry;
     cellShapeGeo: THREE.ShapeGeometry;
     cellSize: number;
-    cells: any;
+    cells: Array<Cell>;
     numCells: number;
     _cellWidth: number;
     _cellLength: number;
@@ -22,7 +22,7 @@ export class Grid {
     _vec3: THREE.Vector3;
     _cel: Cell;
     _conversionVec: THREE.Vector3;
-    _geoCache: Array<any>;
+    _geoCache: Array<THREE.ExtrudeGeometry>;
     _matCache: Array<any>;
     extrudeSettings: ExtrudeSettings;
     constructor(config: any) {
@@ -32,6 +32,9 @@ export class Grid {
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util.SQRT3 * 0.5) * this._cellWidth;
         this._hashDelimeter = '.';
+
+        this._geoCache = new Array<THREE.ExtrudeGeometry>();
+        this.cells = new Array<Cell>();
         // create base shape used for building geometry
         var i, verts = [];
         // create the skeleton of the hex
