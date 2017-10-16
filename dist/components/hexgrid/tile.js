@@ -5,7 +5,7 @@ var util_1 = require("../util");
 var Tile = (function () {
     function Tile(config) {
         this.util = new util_1.UtilGenerator();
-        if (!this.material) {
+        if (!config.material && !this.material) {
             this.material = new THREE.MeshPhongMaterial({
                 color: this.util.randomizeRGB('30, 30, 30', 13)
             });
