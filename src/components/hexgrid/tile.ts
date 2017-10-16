@@ -16,7 +16,7 @@ export class Tile {
 
     constructor(config: any) {
         this.util = new UtilGenerator();
-        if (!this.material) {
+        if (!config.material && !this.material) {
             this.material = new THREE.MeshPhongMaterial({
                 color: this.util.randomizeRGB('30, 30, 30', 13)
             });
