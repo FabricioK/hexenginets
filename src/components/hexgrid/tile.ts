@@ -22,6 +22,9 @@ export class Tile {
             });
         }
 
+        if (!this.geometry)
+            this.geometry = config.geometry;
+
         this.cell = config.cell;
         if (this.cell.tile && this.cell.tile !== this) this.cell.tile.dispose(); // remove whatever was there
         this.cell.tile = this;

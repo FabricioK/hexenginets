@@ -10,6 +10,8 @@ var Tile = (function () {
                 color: this.util.randomizeRGB('30, 30, 30', 13)
             });
         }
+        if (!this.geometry)
+            this.geometry = config.geometry;
         this.cell = config.cell;
         if (this.cell.tile && this.cell.tile !== this)
             this.cell.tile.dispose();
