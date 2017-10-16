@@ -15,7 +15,7 @@ export class Cell {
     _parent: any;
     uniqueID: string;
 
-    constructor(q, r, s, h) {
+    constructor(q, r, s, h?) {
         this.q = q || 0; // x grid coordinate (using different letters so that it won't be confused with pixel/world coordinates)
         this.r = r || 0; // y grid coordinate
         this.s = s || 0; // z grid coordinate
