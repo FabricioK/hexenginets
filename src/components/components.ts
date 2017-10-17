@@ -4,3 +4,5 @@ export * from './hexgrid/tile';
 export * from './hexgrid/grid';
 export * from './hexgrid/board';
 export * from './hexgrid/extrudesettings';
+
+export * from './entities/entity';

@@ -1,5 +1,5 @@
 import { Scene } from './components/hexgrid/scene'
-
+import { Entity } from './components/entities/entity'
 export class Engine {
 
     private container: HTMLElement;
@@ -7,12 +7,9 @@ export class Engine {
     private currentScene: string;
     private renderSettings: any;
     private scenes: { [key: string]: Scene; } = {};
+    private entities: { [key: string]: Entity } = {};
 
-    constructor() {
-
-    }
-
-    init(config: any) {
+    constructor(config: any) {
         this.containerId = config.containerId;
         this.renderSettings = config.renderSettings;
         if (this.containerId) {
@@ -29,6 +26,10 @@ export class Engine {
             this.currentScene = key;
 
         this.scenes[key] = _scene;
+    }
+
+    addEntity(key: string, entity: Entity) {
+        this.entities[key] = entity;
     }
 
     countScenes(): number {

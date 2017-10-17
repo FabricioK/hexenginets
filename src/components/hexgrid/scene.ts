@@ -38,7 +38,6 @@ export class Scene {
         requestAnimationFrame(this.animate);
         this.render();
     }
-
     public render() {
         this.renderer.render(this.container, this.camera)
     }
