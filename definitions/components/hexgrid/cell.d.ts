@@ -12,7 +12,7 @@ export declare class Cell {
     _visited: boolean;
     _parent: any;
     uniqueID: string;
-    constructor(q: any, r: any, s: any, h: any);
+    constructor(q: any, r: any, s: any, h?: any);
     set(q: any, r: any, s: any): Cell;
     copy(cell: Cell): Cell;
     add(cell: Cell): this;

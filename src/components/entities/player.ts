@@ -1,4 +1,5 @@
 import { Entity } from './entity'
+import * as  THREE from 'three'
 
 export class Player extends Entity {
     geometry: THREE.Geometry;

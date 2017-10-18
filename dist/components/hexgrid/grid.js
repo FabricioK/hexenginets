@@ -11,6 +11,9 @@ var Grid = (function () {
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util_1.util.SQRT3 * 0.5) * this._cellWidth;
         this._hashDelimeter = '.';
+        this._directions = [new components_1.Cell(+1, -1, 0), new components_1.Cell(+1, 0, -1), new components_1.Cell(0, +1, -1), new components_1.Cell(-1, +1, 0), new components_1.Cell(-1, 0, +1), new components_1.Cell(0, -1, +1)];
+        this._diagonals = [new components_1.Cell(+2, -1, -1), new components_1.Cell(+1, +1, -2), new components_1.Cell(-1, +2, -1), new components_1.Cell(-2, +1, +1), new components_1.Cell(-1, -1, +2), new components_1.Cell(+1, -2, +1)];
+        this.TWO_THIRDS = 2 / 3;
         this._geoCache = new Array();
         this.cells = new Array();
         var i, verts = [];
@@ -29,6 +32,24 @@ var Grid = (function () {
         this.cellGeo.verticesNeedUpdate = true;
         this.cellShapeGeo = new THREE.ShapeGeometry(this.cellShape);
     }
+    Grid.prototype._cubeRound = function (h) {
+        var rx = Math.round(h.q);
+        var ry = Math.round(h.r);
+        var rz = Math.round(h.s);
+        var xDiff = Math.abs(rx - h.q);
+        var yDiff = Math.abs(ry - h.r);
+        var zDiff = Math.abs(rz - h.s);
+        if (xDiff > yDiff && xDiff > zDiff) {
+            rx = -ry - rz;
+        }
+        else if (yDiff > zDiff) {
+            ry = -rx - rz;
+        }
+        else {
+            rz = -rx - ry;
+        }
+        return this._cel.set(rx, ry, rz);
+    };
     Grid.prototype._createVertex = function (i) {
         var angle = (util_1.util.TAU / 6) * i;
         return new THREE.Vector3((this.cellSize * Math.cos(angle)), (this.cellSize * Math.sin(angle)), 0);
@@ -43,6 +64,13 @@ var Grid = (function () {
     };
     Grid.prototype.cellToHash = function (cell) {
         return cell.q + this._hashDelimeter + cell.r + this._hashDelimeter + cell.s;
+    };
+    Grid.prototype.remove = function (cell) {
+        var h = this.cellToHash(cell);
+        if (this.cells[h]) {
+            delete this.cells[h];
+            this.numCells--;
+        }
     };
     Grid.prototype.add = function (cell) {
         var h = this.cellToHash(cell);
@@ -64,6 +92,64 @@ var Grid = (function () {
                 }
             }
         }
+    };
+    Grid.prototype.pixelToCell = function (pos) {
+        var q = pos.x * (this.TWO_THIRDS / this.cellSize);
+        var r = ((-pos.x / 3) + (util_1.util.SQRT3 / 3) * pos.z) / this.cellSize;
+        this._cel.set(q, r, -q - r);
+        return this._cubeRound(this._cel);
+    };
+    Grid.prototype.distance = function (cellA, cellB) {
+        var d = Math.max(Math.abs(cellA.q - cellB.q), Math.abs(cellA.r - cellB.r), Math.abs(cellA.s - cellB.s));
+        d += cellB.h - cellA.h;
+        return d;
+    };
+    Grid.prototype.clearPath = function () {
+        for (var i in this.cells) {
+            var c = this.cells[i];
+            c._calcCost = 0;
+            c._priority = 0;
+            c._parent = null;
+            c._visited = false;
+        }
+    };
+    Grid.prototype.traverse = function (cb) {
+        var i;
+        for (i in this.cells) {
+            cb(this.cells[i]);
+        }
+    };
+    Grid.prototype.getNeighbors = function (cell, diagonal, filter) {
+        var i, n, l = this._directions.length;
+        this._list.length = 0;
+        for (i = 0; i < l; i++) {
+            this._cel.copy(cell);
+            this._cel.add(this._directions[i]);
+            n = this.cells[this.cellToHash(this._cel)];
+            if (!n || (filter && !filter(cell, n))) {
+                continue;
+            }
+            this._list.push(n);
+        }
+        if (diagonal) {
+            for (i = 0; i < l; i++) {
+                this._cel.copy(cell);
+                this._cel.add(this._diagonals[i]);
+                n = this.cells[this.cellToHash(this._cel)];
+                if (!n || (filter && !filter(cell, n))) {
+                    continue;
+                }
+                this._list.push(n);
+            }
+        }
+        return this._list;
+    };
+    Grid.prototype.getCellAt = function (pos) {
+        var q = pos.x * (this.TWO_THIRDS / this.cellSize);
+        var r = ((-pos.x / 3) + (util_1.util.SQRT3 / 3) * pos.z) / this.cellSize;
+        this._cel.set(q, r, -q - r);
+        this._cubeRound(this._cel);
+        return this.cells[this.cellToHash(this._cel)];
     };
     Grid.prototype.generateOverlay = function (size, overlayObj, overlayMat) {
         var x, y, z;
