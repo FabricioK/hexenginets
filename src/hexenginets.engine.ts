@@ -1,5 +1,7 @@
-import { Scene } from './components/hexgrid/scene'
-import { Entity } from './components/entities/entity'
+import { Scene, Entity } from './components/components'
+
+import * as  THREE from 'three'
+
 export class Engine {
 
     private container: HTMLElement;

@@ -7,9 +7,8 @@ export class Player extends Entity {
     position: THREE.Vector3;
     rotation: THREE.Euler;
     material: THREE.MeshPhongMaterial;
-
+    skinnedMesh: THREE.SkinnedMesh;
     constructor() {
-
         super();
     }
 }
