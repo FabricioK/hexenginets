@@ -21,6 +21,9 @@ var SkinnedEntity = (function (_super) {
         this.mixer = new THREE.AnimationMixer(this.skinnedMesh);
         callback();
     };
+    SkinnedEntity.prototype.SetTile = function (tile) {
+        this.currentTile = tile;
+    };
     SkinnedEntity.prototype.Load = function (path, callback) {
         var _this = this;
         this.loader.load(path, function (geometry, materials) {
@@ -28,6 +31,9 @@ var SkinnedEntity = (function (_super) {
                 material.skinning = true;
             });
             _this.skinnedMesh = new THREE.SkinnedMesh(geometry, new THREE.MeshFaceMaterial(materials));
+            if (_this.currentTile) {
+                _this.skinnedMesh.position.set(_this.currentTile.position.x, _this.currentTile.position.y, _this.currentTile.position.z);
+            }
             _this.geometry = geometry;
             callback();
         });

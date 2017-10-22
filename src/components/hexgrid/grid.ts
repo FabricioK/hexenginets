@@ -208,7 +208,7 @@ export class Grid {
             }
         }
     }
-    generateTile(cell, scale, material) {
+    generateTile(cell : Cell, scale, material) {
         var height = Math.abs(cell.h);
         if (height < 1) height = 1;
 
@@ -243,7 +243,7 @@ export class Grid {
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util.SQRT3 * 0.5) * this._cellWidth;
         var i, t, c;
-        for (i in this.cells) {
+        for (let i in this.cells) {
             c = this.cells[i];
             t = this.generateTile(c, settings.tileScale, settings.material);
             t.position.copy(this.cellToPixel(c));

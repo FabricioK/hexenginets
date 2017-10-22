@@ -1,3 +1,4 @@
+import { Tile } from "./../../index";
 import * as THREE from 'three';
 export declare class Entity {
     textureLoader: THREE.TextureLoader;
@@ -7,6 +8,7 @@ export declare class Entity {
     mesh: THREE.Mesh;
     skinnedMesh: THREE.SkinnedMesh;
     material: THREE.MeshPhongMaterial;
+    currentTile: Tile;
     position: THREE.Vector3;
     rotation: THREE.Euler;
     object3D: THREE.Object3D;

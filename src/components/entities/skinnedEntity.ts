@@ -6,12 +6,15 @@ export class SkinnedEntity extends Entity {
         super();
     }
 
-    StartAnimationMixer(callback : Function) {
+    StartAnimationMixer(callback: Function) {
         this.mixer = new THREE.AnimationMixer(this.skinnedMesh);
         callback();
     }
 
-    Load(path: string, callback :Function) {
+    SetTile(tile: Tile) {
+        this.currentTile = tile;
+    }
+    Load(path: string, callback: Function) {
         this.loader.load(path, (geometry, materials) => {
             materials.forEach(function (material: any) {
                 material.skinning = true;
@@ -20,6 +23,9 @@ export class SkinnedEntity extends Entity {
                 geometry,
                 new THREE.MeshFaceMaterial(materials)
             );
+            if(this.currentTile){
+                this.skinnedMesh.position.set(this.currentTile.position.x,this.currentTile.position.y,this.currentTile.position.z);
+            }
             this.geometry = geometry;
             callback();
         });

@@ -35,7 +35,7 @@ export declare class Grid {
     getNeighbors(cell: Cell, diagonal: any, filter: any): any[];
     getCellAt(pos: THREE.Vector3): any;
     generateOverlay(size: any, overlayObj: any, overlayMat: any): void;
-    generateTile(cell: any, scale: any, material: any): Tile;
+    generateTile(cell: Cell, scale: any, material: any): Tile;
     generateTiles(): any[];
     dispose(): void;
 }

@@ -199,8 +199,8 @@ var Grid = (function () {
         this._cellWidth = this.cellSize * 2;
         this._cellLength = (util_1.util.SQRT3 * 0.5) * this._cellWidth;
         var i, t, c;
-        for (i in this.cells) {
-            c = this.cells[i];
+        for (var i_1 in this.cells) {
+            c = this.cells[i_1];
             t = this.generateTile(c, settings.tileScale, settings.material);
             t.position.copy(this.cellToPixel(c));
             t.position.y = 0;
