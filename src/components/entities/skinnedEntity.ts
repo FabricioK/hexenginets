@@ -1,4 +1,5 @@
 import { Entity } from './entity'
+import { Tile } from './../hexgrid/tile'
 import * as  THREE from 'three'
 
 export class SkinnedEntity extends Entity {
@@ -23,8 +24,8 @@ export class SkinnedEntity extends Entity {
                 geometry,
                 new THREE.MeshFaceMaterial(materials)
             );
-            if(this.currentTile){
-                this.skinnedMesh.position.set(this.currentTile.position.x,this.currentTile.position.y,this.currentTile.position.z);
+            if (this.currentTile) {
+                this.skinnedMesh.position.set(this.currentTile.position.x, this.currentTile.position.y, this.currentTile.position.z);
             }
             this.geometry = geometry;
             callback();
