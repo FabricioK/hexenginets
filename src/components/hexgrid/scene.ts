@@ -49,6 +49,7 @@ export class Scene {
     }
     addSkinnedEntity(key: string, entity: SkinnedEntity) {
         this.skinnedentities[key] = entity;
+        this.container.add(entity.skinnedMesh);
     }
     public render() {
         var delta = this.clock.getDelta();

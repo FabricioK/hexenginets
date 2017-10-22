@@ -37,6 +37,7 @@ var Scene = (function () {
     };
     Scene.prototype.addSkinnedEntity = function (key, entity) {
         this.skinnedentities[key] = entity;
+        this.container.add(entity.skinnedMesh);
     };
     Scene.prototype.render = function () {
         var delta = this.clock.getDelta();
