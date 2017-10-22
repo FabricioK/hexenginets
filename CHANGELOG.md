@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.28"></a>
+## [3.5.28](https://github.com/FabricioK/hexenginets/compare/v3.5.27...v3.5.28) (2017-10-22)
+
+
+
 <a name="3.5.27"></a>
 ## [3.5.27](https://github.com/FabricioK/hexenginets/compare/v3.5.26...v3.5.27) (2017-10-22)
 
