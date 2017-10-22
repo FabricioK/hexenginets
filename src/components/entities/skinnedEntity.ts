@@ -10,7 +10,7 @@ export class SkinnedEntity extends Entity {
         this.mixer = new THREE.AnimationMixer(this.skinnedMesh);
     }
 
-    Load(path: string) {
+    Load(path: string, callback :Function) {
         this.loader.load(path, (geometry, materials) => {
             materials.forEach(function (material: any) {
                 material.skinning = true;
@@ -19,6 +19,7 @@ export class SkinnedEntity extends Entity {
                 geometry,
                 new THREE.MeshFaceMaterial(materials)
             );
+            callback();
         });
     }
 }

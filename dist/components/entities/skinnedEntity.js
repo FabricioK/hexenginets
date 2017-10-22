@@ -20,13 +20,14 @@ var SkinnedEntity = (function (_super) {
     SkinnedEntity.prototype.StartAnimationMixer = function () {
         this.mixer = new THREE.AnimationMixer(this.skinnedMesh);
     };
-    SkinnedEntity.prototype.Load = function (path) {
+    SkinnedEntity.prototype.Load = function (path, callback) {
         var _this = this;
         this.loader.load(path, function (geometry, materials) {
             materials.forEach(function (material) {
                 material.skinning = true;
             });
             _this.skinnedMesh = new THREE.SkinnedMesh(geometry, new THREE.MeshFaceMaterial(materials));
+            callback();
         });
     };
     return SkinnedEntity;
