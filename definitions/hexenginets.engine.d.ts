@@ -1,6 +1,6 @@
 import { Scene, Entity } from './components/components';
 export declare class Engine {
-    private container;
+    container: HTMLElement;
     private containerId;
     private currentScene;
     private renderSettings;

@@ -4,7 +4,7 @@ import * as  THREE from 'three'
 
 export class Engine {
 
-    private container: HTMLElement;
+    public container: HTMLElement;
     private containerId: string;
     private currentScene: string;
     private renderSettings: any;
