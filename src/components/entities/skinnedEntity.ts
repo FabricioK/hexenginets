@@ -6,8 +6,9 @@ export class SkinnedEntity extends Entity {
         super();
     }
 
-    StartAnimationMixer() {
+    StartAnimationMixer(callback : Function) {
         this.mixer = new THREE.AnimationMixer(this.skinnedMesh);
+        callback();
     }
 
     Load(path: string, callback :Function) {
@@ -19,6 +20,7 @@ export class SkinnedEntity extends Entity {
                 geometry,
                 new THREE.MeshFaceMaterial(materials)
             );
+            this.geometry = geometry;
             callback();
         });
     }
