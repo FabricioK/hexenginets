@@ -10,3 +10,4 @@ __export(require("./hexgrid/grid"));
 __export(require("./hexgrid/board"));
 __export(require("./hexgrid/extrudesettings"));
 __export(require("./entities/entity"));
+__export(require("./entities/skinnedentity"));
