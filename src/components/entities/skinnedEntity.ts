@@ -25,7 +25,7 @@ export class SkinnedEntity extends Entity {
                 new THREE.MeshFaceMaterial(materials)
             );
             if (this.currentTile) {
-                this.skinnedMesh.position.set(this.currentTile.position.x, this.currentTile.position.y, this.currentTile.position.z);
+                this.skinnedMesh.position.set(this.currentTile.position.x, this.currentTile.position.y + this.currentTile.cell.h, this.currentTile.position.z);
             }
             this.geometry = geometry;
             callback();

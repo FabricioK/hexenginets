@@ -32,7 +32,7 @@ var SkinnedEntity = (function (_super) {
             });
             _this.skinnedMesh = new THREE.SkinnedMesh(geometry, new THREE.MeshFaceMaterial(materials));
             if (_this.currentTile) {
-                _this.skinnedMesh.position.set(_this.currentTile.position.x, _this.currentTile.position.y, _this.currentTile.position.z);
+                _this.skinnedMesh.position.set(_this.currentTile.position.x, _this.currentTile.position.y + _this.currentTile.cell.h, _this.currentTile.position.z);
             }
             _this.geometry = geometry;
             callback();
