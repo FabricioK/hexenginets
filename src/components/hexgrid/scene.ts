@@ -1,6 +1,6 @@
 // three.js
 import * as THREE from 'three'
-import { Grid, Board } from '../components'
+import { Grid, Board , Entity ,SkinnedEntity } from '../components'
 // create the scene
 export class Scene {
     public title: string;
@@ -11,12 +11,17 @@ export class Scene {
     public innerHeight: number;
     public board: Board;
     public grid: Grid;
+    public clock: THREE.Clock;
+    private entities: { [key: string]: Entity } = {};
+    private skinnedentities: { [key: string]: SkinnedEntity } = {};
+    
     constructor(config: any) {
         this.title = config.title;
         this.innerHeight = config.innerHeight | 500;
         this.innerWidth = config.innerWidth | 500;
         this.camera = new THREE.PerspectiveCamera(50, this.innerWidth / this.innerHeight, 1, 5000);
         this.camera.position.z = 5;
+        this.clock = new THREE.Clock();
         this.container = new THREE.Scene();
 
         this.grid = new Grid(config.gridConfig);
@@ -38,7 +43,24 @@ export class Scene {
         requestAnimationFrame(this.animate);
         this.render();
     }
+
+    addEntity(key: string, entity: Entity) {
+        this.entities[key] = entity;
+    }
+    addSkinnedEntity(key: string, entity: SkinnedEntity) {
+        this.skinnedentities[key] = entity;
+    }
     public render() {
+        var delta = this.clock.getDelta();
+        
+        for(let key in this.skinnedentities){
+            let entity = this.skinnedentities[key];
+            entity.mixer.update(delta);    
+        };
+        for(let key in this.entities){
+            let entity = this.entities[key];
+            entity.mixer.update(delta);    
+        };
         this.renderer.render(this.container, this.camera)
     }
 }

@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Engine = (function () {
     function Engine(config) {
         this.scenes = {};
-        this.entities = {};
         this.containerId = config.containerId;
         this.renderSettings = config.renderSettings;
         if (this.containerId) {
@@ -17,9 +16,6 @@ var Engine = (function () {
         if (this.currentScene == undefined)
             this.currentScene = key;
         this.scenes[key] = _scene;
-    };
-    Engine.prototype.addEntity = function (key, entity) {
-        this.entities[key] = entity;
     };
     Engine.prototype.countScenes = function () {
         return Object.keys(this.scenes).length;

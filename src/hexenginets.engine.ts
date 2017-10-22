@@ -8,9 +8,7 @@ export class Engine {
     private containerId: string;
     private currentScene: string;
     private renderSettings: any;
-    private scenes: { [key: string]: Scene; } = {};
-    private entities: { [key: string]: Entity } = {};
-
+    private scenes: { [key: string]: Scene; } = {};    
     constructor(config: any) {
         this.containerId = config.containerId;
         this.renderSettings = config.renderSettings;
@@ -28,10 +26,6 @@ export class Engine {
             this.currentScene = key;
 
         this.scenes[key] = _scene;
-    }
-
-    addEntity(key: string, entity: Entity) {
-        this.entities[key] = entity;
     }
 
     countScenes(): number {

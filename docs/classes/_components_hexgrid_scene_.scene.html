@@ -92,17 +92,22 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#board" class="tsd-kind-icon">board</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#camera" class="tsd-kind-icon">camera</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#clock" class="tsd-kind-icon">clock</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#container" class="tsd-kind-icon">container</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_components_hexgrid_scene_.scene.html#entities" class="tsd-kind-icon">entities</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#grid" class="tsd-kind-icon">grid</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#innerheight" class="tsd-kind-icon">inner<wbr>Height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#innerwidth" class="tsd-kind-icon">inner<wbr>Width</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#renderer" class="tsd-kind-icon">renderer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_components_hexgrid_scene_.scene.html#skinnedentities" class="tsd-kind-icon">skinnedentities</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#title" class="tsd-kind-icon">title</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#addentity" class="tsd-kind-icon">add<wbr>Entity</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#addskinnedentity" class="tsd-kind-icon">add<wbr>Skinned<wbr>Entity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#animate" class="tsd-kind-icon">animate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#focuson" class="tsd-kind-icon">focus<wbr>On</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_components_hexgrid_scene_.scene.html#render" class="tsd-kind-icon">render</a></li>
@@ -124,7 +129,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L13">components/hexgrid/scene.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L16">components/hexgrid/scene.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -146,7 +151,7 @@
 					<div class="tsd-signature tsd-kind-icon">board<span class="tsd-signature-symbol">:</span> <a href="_components_hexgrid_board_.board.html" class="tsd-signature-type">Board</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L12">components/hexgrid/scene.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L12">components/hexgrid/scene.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -156,7 +161,17 @@
 					<div class="tsd-signature tsd-kind-icon">camera<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">PerspectiveCamera</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L8">components/hexgrid/scene.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L8">components/hexgrid/scene.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="clock" class="tsd-anchor"></a>
+					<h3>clock</h3>
+					<div class="tsd-signature tsd-kind-icon">clock<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Clock</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L14">components/hexgrid/scene.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -166,9 +181,27 @@
 					<div class="tsd-signature tsd-kind-icon">container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Scene</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L7">components/hexgrid/scene.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L7">components/hexgrid/scene.ts:7</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="entities" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> entities</h3>
+					<div class="tsd-signature tsd-kind-icon">entities<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L15">components/hexgrid/scene.ts:15</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="_components_entities_entity_.entity.html" class="tsd-signature-type">Entity</a></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="grid" class="tsd-anchor"></a>
@@ -176,7 +209,7 @@
 					<div class="tsd-signature tsd-kind-icon">grid<span class="tsd-signature-symbol">:</span> <a href="_components_hexgrid_grid_.grid.html" class="tsd-signature-type">Grid</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L13">components/hexgrid/scene.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L13">components/hexgrid/scene.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,7 +219,7 @@
 					<div class="tsd-signature tsd-kind-icon">inner<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L11">components/hexgrid/scene.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L11">components/hexgrid/scene.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +229,7 @@
 					<div class="tsd-signature tsd-kind-icon">inner<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L10">components/hexgrid/scene.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L10">components/hexgrid/scene.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -206,9 +239,27 @@
 					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebGLRenderer</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L9">components/hexgrid/scene.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L9">components/hexgrid/scene.ts:9</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="skinnedentities" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> skinnedentities</h3>
+					<div class="tsd-signature tsd-kind-icon">skinnedentities<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L16">components/hexgrid/scene.ts:16</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="_components_entities_skinnedentity_.skinnedentity.html" class="tsd-signature-type">SkinnedEntity</a></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="title" class="tsd-anchor"></a>
@@ -216,13 +267,65 @@
 					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L6">components/hexgrid/scene.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L6">components/hexgrid/scene.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addentity" class="tsd-anchor"></a>
+					<h3>add<wbr>Entity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Entity<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, entity<span class="tsd-signature-symbol">: </span><a href="_components_entities_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L47">components/hexgrid/scene.ts:47</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>entity: <a href="_components_entities_entity_.entity.html" class="tsd-signature-type">Entity</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addskinnedentity" class="tsd-anchor"></a>
+					<h3>add<wbr>Skinned<wbr>Entity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Skinned<wbr>Entity<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, entity<span class="tsd-signature-symbol">: </span><a href="_components_entities_skinnedentity_.skinnedentity.html" class="tsd-signature-type">SkinnedEntity</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L50">components/hexgrid/scene.ts:50</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>entity: <a href="_components_entities_skinnedentity_.skinnedentity.html" class="tsd-signature-type">SkinnedEntity</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="animate" class="tsd-anchor"></a>
 					<h3>animate</h3>
@@ -233,7 +336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L37">components/hexgrid/scene.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L42">components/hexgrid/scene.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -250,7 +353,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L29">components/hexgrid/scene.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L34">components/hexgrid/scene.ts:34</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -273,7 +376,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L41">components/hexgrid/scene.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L53">components/hexgrid/scene.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -290,7 +393,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/5d807a6/src/components/hexgrid/scene.ts#L32">components/hexgrid/scene.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/FabricioK/hexenginets/blob/45d1d43/src/components/hexgrid/scene.ts#L37">components/hexgrid/scene.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -381,7 +484,13 @@
 								<a href="_components_hexgrid_scene_.scene.html#camera" class="tsd-kind-icon">camera</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_components_hexgrid_scene_.scene.html#clock" class="tsd-kind-icon">clock</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_components_hexgrid_scene_.scene.html#container" class="tsd-kind-icon">container</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_components_hexgrid_scene_.scene.html#entities" class="tsd-kind-icon">entities</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_components_hexgrid_scene_.scene.html#grid" class="tsd-kind-icon">grid</a>
@@ -395,8 +504,17 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_components_hexgrid_scene_.scene.html#renderer" class="tsd-kind-icon">renderer</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_components_hexgrid_scene_.scene.html#skinnedentities" class="tsd-kind-icon">skinnedentities</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_components_hexgrid_scene_.scene.html#title" class="tsd-kind-icon">title</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_components_hexgrid_scene_.scene.html#addentity" class="tsd-kind-icon">add<wbr>Entity</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_components_hexgrid_scene_.scene.html#addskinnedentity" class="tsd-kind-icon">add<wbr>Skinned<wbr>Entity</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_components_hexgrid_scene_.scene.html#animate" class="tsd-kind-icon">animate</a>
