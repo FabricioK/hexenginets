@@ -21,11 +21,12 @@ var SkinnedEntity = (function (_super) {
         this.mixer = new THREE.AnimationMixer(this.skinnedMesh);
     };
     SkinnedEntity.prototype.Load = function (path) {
+        var _this = this;
         this.loader.load(path, function (geometry, materials) {
             materials.forEach(function (material) {
                 material.skinning = true;
             });
-            this.skinnedMesh = new THREE.SkinnedMesh(geometry, new THREE.MeshFaceMaterial(materials));
+            _this.skinnedMesh = new THREE.SkinnedMesh(geometry, new THREE.MeshFaceMaterial(materials));
         });
     };
     return SkinnedEntity;

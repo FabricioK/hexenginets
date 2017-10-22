@@ -5,13 +5,13 @@ export class SkinnedEntity extends Entity {
     constructor() {
         super();
     }
-    
+
     StartAnimationMixer() {
         this.mixer = new THREE.AnimationMixer(this.skinnedMesh);
     }
 
     Load(path: string) {
-        this.loader.load(path, function (geometry, materials) {
+        this.loader.load(path, (geometry, materials) => {
             materials.forEach(function (material: any) {
                 material.skinning = true;
             });
