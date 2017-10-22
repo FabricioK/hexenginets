@@ -29,6 +29,7 @@ export class UtilGenerator {
         }
         return (Math.random() * (max - min + 1) + min) | 0;
     }
+    
     randomizeRGB(base, range): string {
         var rgb = base.split(',');
         var color = 'rgb(';
@@ -44,4 +45,6 @@ export class UtilGenerator {
         color += ')';
         return color;
     }
+
+    
 }

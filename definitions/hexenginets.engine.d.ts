@@ -1,5 +1,4 @@
-import { Scene } from './components/hexgrid/scene';
-import { Entity } from './components/entities/entity';
+import { Scene, Entity } from './components/components';
 export declare class Engine {
     private container;
     private containerId;
